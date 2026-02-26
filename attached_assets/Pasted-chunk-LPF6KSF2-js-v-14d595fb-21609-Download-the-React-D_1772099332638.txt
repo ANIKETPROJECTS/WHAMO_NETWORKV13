@@ -1,0 +1,37 @@
+chunk-LPF6KSF2.js?v=14d595fb:21609 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+react-resizable-panels.js?v=14d595fb:1383 WARNING: Invalid layout total size: 75%. Layout normalization will be applied.
+validatePanelGroupLayout @ react-resizable-panels.js?v=14d595fb:1383
+@radix-ui_react-dialog.js?v=14d595fb:333 Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+(anonymous) @ @radix-ui_react-dialog.js?v=14d595fb:333
+commitHookEffectListMount @ chunk-LPF6KSF2.js?v=14d595fb:16963
+commitPassiveMountOnFiber @ chunk-LPF6KSF2.js?v=14d595fb:18206
+commitPassiveMountEffects_complete @ chunk-LPF6KSF2.js?v=14d595fb:18179
+commitPassiveMountEffects_begin @ chunk-LPF6KSF2.js?v=14d595fb:18169
+commitPassiveMountEffects @ chunk-LPF6KSF2.js?v=14d595fb:18159
+flushPassiveEffectsImpl @ chunk-LPF6KSF2.js?v=14d595fb:19543
+flushPassiveEffects @ chunk-LPF6KSF2.js?v=14d595fb:19500
+commitRootImpl @ chunk-LPF6KSF2.js?v=14d595fb:19469
+commitRoot @ chunk-LPF6KSF2.js?v=14d595fb:19330
+performSyncWorkOnRoot @ chunk-LPF6KSF2.js?v=14d595fb:18948
+flushSyncCallbacks @ chunk-LPF6KSF2.js?v=14d595fb:9166
+flushSync @ chunk-LPF6KSF2.js?v=14d595fb:19012
+flushSync$1 @ chunk-LPF6KSF2.js?v=14d595fb:21596
+dispatchDiscreteCustomEvent @ chunk-SVUUWUBB.js?v=14d595fb:53
+handleSelect @ @radix-ui_react-menubar.js?v=14d595fb:422
+handleEvent @ chunk-TU3MQTJK.js?v=14d595fb:93
+callCallback2 @ chunk-LPF6KSF2.js?v=14d595fb:3680
+invokeGuardedCallbackDev @ chunk-LPF6KSF2.js?v=14d595fb:3705
+invokeGuardedCallback @ chunk-LPF6KSF2.js?v=14d595fb:3739
+invokeGuardedCallbackAndCatchFirstError @ chunk-LPF6KSF2.js?v=14d595fb:3742
+executeDispatch @ chunk-LPF6KSF2.js?v=14d595fb:7046
+processDispatchQueueItemsInOrder @ chunk-LPF6KSF2.js?v=14d595fb:7066
+processDispatchQueue @ chunk-LPF6KSF2.js?v=14d595fb:7075
+dispatchEventsForPlugins @ chunk-LPF6KSF2.js?v=14d595fb:7083
+(anonymous) @ chunk-LPF6KSF2.js?v=14d595fb:7206
+batchedUpdates$1 @ chunk-LPF6KSF2.js?v=14d595fb:18966
+batchedUpdates @ chunk-LPF6KSF2.js?v=14d595fb:3585
+dispatchEventForPluginEventSystem @ chunk-LPF6KSF2.js?v=14d595fb:7205
+dispatchEventWithEnableCapturePhaseSelectiveHydrationWithoutDiscreteEventReplay @ chunk-LPF6KSF2.js?v=14d595fb:5484
+dispatchEvent @ chunk-LPF6KSF2.js?v=14d595fb:5478
+dispatchDiscreteEvent @ chunk-LPF6KSF2.js?v=14d595fb:5455
+client:865 [vite] server connection lost. Polling for restart...
