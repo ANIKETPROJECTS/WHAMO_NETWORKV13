@@ -59,7 +59,7 @@ export function DataList({ data, title }: { data: any, title: string }) {
       if (key === 'shape' && !data.hasShape) return false;
 
       // Filter out duplicate/mismatched property names
-      if (key === 'topElevation' || key === 'bottomElevation' || key === 'elevation') return false;
+      if (key === 'topElevation' || key === 'bottomElevation') return false;
     }
 
     // Flow Boundary specific filtering

@@ -310,27 +310,7 @@ export const useNetworkStore = create<NetworkState>((set, get) => ({
         initialData = { ...initialData, label: `Node ${nodeNumber}`, nodeNumber, elevation: 50 };
         break;
       case 'surgeTank':
-        initialData = { 
-          ...initialData, 
-          label: 'ST', 
-          nodeNumber, 
-          elevation: 0,
-          tankTop: 120, 
-          bottomElevation: 80, 
-          tankBottom: 80,
-          diameter: 5, 
-          celerity: 1000, 
-          friction: 0.01,
-          type_st: 'SIMPLE',
-          initialWaterLevel: 0,
-          riserDiameter: 0,
-          riserTop: 0,
-          hasAddedLoss: false,
-          cplus: 0,
-          cminus: 0,
-          hasShape: false,
-          shape: []
-        };
+        initialData = { ...initialData, label: 'ST', nodeNumber, topElevation: 120, bottomElevation: 80, diameter: 5, celerity: 1000, friction: 0.01 };
         break;
       case 'flowBoundary':
         initialData = { ...initialData, label: `FB${id}`, nodeNumber, scheduleNumber: 1 };
