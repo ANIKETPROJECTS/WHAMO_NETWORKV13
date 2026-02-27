@@ -4,6 +4,7 @@ import { memo } from 'react';
 import reservoirImg from '@/assets/reservoir.png';
 import tankImg from '@/assets/tank.png';
 import { TooltipWrapper, DataList } from './TooltipWrapper';
+import { useNetworkStore } from '@/lib/store';
 
 // Common handle styles
 const HandleStyle = "w-2 h-2 bg-primary border border-white opacity-0 group-hover:opacity-100 transition-opacity";

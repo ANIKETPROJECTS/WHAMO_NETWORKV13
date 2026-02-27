@@ -1,0 +1,91 @@
+chunk-LPF6KSF2.js?v=95f4ee5c:21609 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+react-resizable-panels.js?v=5ac7b1cf:1383 WARNING: Invalid layout total size: 75%. Layout normalization will be applied.
+validatePanelGroupLayout @ react-resizable-panels.js?v=5ac7b1cf:1383
+NetworkNode.tsx:105 Uncaught ReferenceError: useNetworkStore is not defined
+    at NetworkNode.tsx:105:16
+    at renderWithHooks (chunk-LPF6KSF2.js?v=95f4ee5c:11596:26)
+    at updateFunctionComponent (chunk-LPF6KSF2.js?v=95f4ee5c:14630:28)
+    at updateSimpleMemoComponent (chunk-LPF6KSF2.js?v=95f4ee5c:14511:18)
+    at updateMemoComponent (chunk-LPF6KSF2.js?v=95f4ee5c:14414:22)
+    at beginWork (chunk-LPF6KSF2.js?v=95f4ee5c:16025:22)
+    at HTMLUnknownElement.callCallback2 (chunk-LPF6KSF2.js?v=95f4ee5c:3680:22)
+    at Object.invokeGuardedCallbackDev (chunk-LPF6KSF2.js?v=95f4ee5c:3705:24)
+    at invokeGuardedCallback (chunk-LPF6KSF2.js?v=95f4ee5c:3739:39)
+    at beginWork$1 (chunk-LPF6KSF2.js?v=95f4ee5c:19818:15)
+NetworkNode.tsx:105 Uncaught ReferenceError: useNetworkStore is not defined
+    at NetworkNode.tsx:105:16
+    at renderWithHooks (chunk-LPF6KSF2.js?v=95f4ee5c:11596:26)
+    at updateFunctionComponent (chunk-LPF6KSF2.js?v=95f4ee5c:14630:28)
+    at updateSimpleMemoComponent (chunk-LPF6KSF2.js?v=95f4ee5c:14511:18)
+    at updateMemoComponent (chunk-LPF6KSF2.js?v=95f4ee5c:14414:22)
+    at beginWork (chunk-LPF6KSF2.js?v=95f4ee5c:16025:22)
+    at HTMLUnknownElement.callCallback2 (chunk-LPF6KSF2.js?v=95f4ee5c:3680:22)
+    at Object.invokeGuardedCallbackDev (chunk-LPF6KSF2.js?v=95f4ee5c:3705:24)
+    at invokeGuardedCallback (chunk-LPF6KSF2.js?v=95f4ee5c:3739:39)
+    at beginWork$1 (chunk-LPF6KSF2.js?v=95f4ee5c:19818:15)
+chunk-LPF6KSF2.js?v=95f4ee5c:14080 The above error occurred in one of your React components:
+
+    at https://13ffdfbc-7e2e-4d13-ad7f-edb9ff664799-00-3vyczsc2qv95d.riker.replit.dev/src/components/NetworkNode.tsx?t=1772176345262:263:52
+    at div
+    at NodeWrapper (https://13ffdfbc-7e2e-4d13-ad7f-edb9ff664799-00-3vyczsc2qv95d.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@xyflow_react.js?v=90fa037a:7842:28)
+    at div
+    at NodeRendererComponent (https://13ffdfbc-7e2e-4d13-ad7f-edb9ff664799-00-3vyczsc2qv95d.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@xyflow_react.js?v=90fa037a:7976:93)
+    at div
+    at Viewport (https://13ffdfbc-7e2e-4d13-ad7f-edb9ff664799-00-3vyczsc2qv95d.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@xyflow_react.js?v=90fa037a:8447:31)
+    at div
+    at Pane (https://13ffdfbc-7e2e-4d13-ad7f-edb9ff664799-00-3vyczsc2qv95d.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@xyflow_react.js?v=90fa037a:7285:17)
+    at div
+    at ZoomPane (https://13ffdfbc-7e2e-4d13-ad7f-edb9ff664799-00-3vyczsc2qv95d.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@xyflow_react.js?v=90fa037a:7163:21)
+    at FlowRendererComponent (https://13ffdfbc-7e2e-4d13-ad7f-edb9ff664799-00-3vyczsc2qv95d.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@xyflow_react.js?v=90fa037a:7755:44)
+    at GraphViewComponent (https://13ffdfbc-7e2e-4d13-ad7f-edb9ff664799-00-3vyczsc2qv95d.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@xyflow_react.js?v=90fa037a:8576:31)
+    at Wrapper (https://13ffdfbc-7e2e-4d13-ad7f-edb9ff664799-00-3vyczsc2qv95d.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@xyflow_react.js?v=90fa037a:8954:30)
+    at div
+    at ReactFlow (https://13ffdfbc-7e2e-4d13-ad7f-edb9ff664799-00-3vyczsc2qv95d.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@xyflow_react.js?v=90fa037a:8968:22)
+    at div
+    at div
+    at div
+    at PanelWithForwardedRef (https://13ffdfbc-7e2e-4d13-ad7f-edb9ff664799-00-3vyczsc2qv95d.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/react-resizable-panels.js?v=5ac7b1cf:41:3)
+    at forwardRef(Panel)
+    at div
+    at PanelGroupWithForwardedRef (https://13ffdfbc-7e2e-4d13-ad7f-edb9ff664799-00-3vyczsc2qv95d.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/react-resizable-panels.js?v=5ac7b1cf:1440:3)
+    at forwardRef(PanelGroup)
+    at ResizablePanelGroup (https://13ffdfbc-7e2e-4d13-ad7f-edb9ff664799-00-3vyczsc2qv95d.riker.replit.dev/src/components/ui/resizable.tsx:22:3)
+    at div
+    at div
+    at DesignerInner (https://13ffdfbc-7e2e-4d13-ad7f-edb9ff664799-00-3vyczsc2qv95d.riker.replit.dev/src/pages/Designer.tsx?t=1772176352826:69:21)
+    at BatchProvider (https://13ffdfbc-7e2e-4d13-ad7f-edb9ff664799-00-3vyczsc2qv95d.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@xyflow_react.js?v=90fa037a:6879:36)
+    at ReactFlowProvider (https://13ffdfbc-7e2e-4d13-ad7f-edb9ff664799-00-3vyczsc2qv95d.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@xyflow_react.js?v=90fa037a:8936:44)
+    at Designer
+    at Route (https://13ffdfbc-7e2e-4d13-ad7f-edb9ff664799-00-3vyczsc2qv95d.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=4d4af210:190:16)
+    at Switch (https://13ffdfbc-7e2e-4d13-ad7f-edb9ff664799-00-3vyczsc2qv95d.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=4d4af210:246:17)
+    at Router
+    at Provider (https://13ffdfbc-7e2e-4d13-ad7f-edb9ff664799-00-3vyczsc2qv95d.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-TU3MQTJK.js?v=95f4ee5c:37:15)
+    at TooltipProvider (https://13ffdfbc-7e2e-4d13-ad7f-edb9ff664799-00-3vyczsc2qv95d.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=b79adda6:59:5)
+    at QueryClientProvider (https://13ffdfbc-7e2e-4d13-ad7f-edb9ff664799-00-3vyczsc2qv95d.riker.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=d14d045f:2747:3)
+    at App
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+logCapturedError @ chunk-LPF6KSF2.js?v=95f4ee5c:14080
+chunk-LPF6KSF2.js?v=95f4ee5c:9176 Uncaught ReferenceError: useNetworkStore is not defined
+    at NetworkNode.tsx:105:16
+    at renderWithHooks (chunk-LPF6KSF2.js?v=95f4ee5c:11596:26)
+    at updateFunctionComponent (chunk-LPF6KSF2.js?v=95f4ee5c:14630:28)
+    at updateSimpleMemoComponent (chunk-LPF6KSF2.js?v=95f4ee5c:14511:18)
+    at updateMemoComponent (chunk-LPF6KSF2.js?v=95f4ee5c:14414:22)
+    at beginWork (chunk-LPF6KSF2.js?v=95f4ee5c:16025:22)
+    at beginWork$1 (chunk-LPF6KSF2.js?v=95f4ee5c:19806:22)
+    at performUnitOfWork (chunk-LPF6KSF2.js?v=95f4ee5c:19251:20)
+    at workLoopSync (chunk-LPF6KSF2.js?v=95f4ee5c:19190:13)
+    at renderRootSync (chunk-LPF6KSF2.js?v=95f4ee5c:19169:15)
+chunk-LPF6KSF2.js?v=95f4ee5c:3756 Uncaught ReferenceError: useNetworkStore is not defined
+    at NetworkNode.tsx:105:16
+    at renderWithHooks (chunk-LPF6KSF2.js?v=95f4ee5c:11596:26)
+    at updateFunctionComponent (chunk-LPF6KSF2.js?v=95f4ee5c:14630:28)
+    at updateSimpleMemoComponent (chunk-LPF6KSF2.js?v=95f4ee5c:14511:18)
+    at updateMemoComponent (chunk-LPF6KSF2.js?v=95f4ee5c:14414:22)
+    at beginWork (chunk-LPF6KSF2.js?v=95f4ee5c:16025:22)
+    at beginWork$1 (chunk-LPF6KSF2.js?v=95f4ee5c:19806:22)
+    at performUnitOfWork (chunk-LPF6KSF2.js?v=95f4ee5c:19251:20)
+    at workLoopSync (chunk-LPF6KSF2.js?v=95f4ee5c:19190:13)
+    at renderRootSync (chunk-LPF6KSF2.js?v=95f4ee5c:19169:15)
