@@ -77,6 +77,7 @@ function DesignerInner() {
   const { toast } = useToast();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { zoomIn, zoomOut, fitView } = useReactFlow();
+  const [validationData, setValidationData] = useState<{ errors: ValidationError[], warnings: ValidationError[] } | null>(null);
 
   // We connect local ReactFlow state to our global Zustand store for properties panel sync
   const { 
@@ -373,7 +374,6 @@ function DesignerInner() {
 
   const handleNewProject = () => {
     clearNetwork();
-  const [validationData, setValidationData] = useState<{ errors: ValidationError[], warnings: ValidationError[] } | null>(null);
     setProjectState("active");
   };
 

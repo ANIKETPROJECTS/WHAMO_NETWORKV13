@@ -1,0 +1,51 @@
+chunk-LPF6KSF2.js?v=1328efac:21609 Download the React DevTools for a better development experience: https://reactjs.org/link/react-devtools
+Designer.tsx:497 Uncaught ReferenceError: validationData is not defined
+    at DesignerInner (Designer.tsx:497:19)
+    at renderWithHooks (chunk-LPF6KSF2.js?v=1328efac:11596:26)
+    at mountIndeterminateComponent (chunk-LPF6KSF2.js?v=1328efac:14974:21)
+    at beginWork (chunk-LPF6KSF2.js?v=1328efac:15962:22)
+    at HTMLUnknownElement.callCallback2 (chunk-LPF6KSF2.js?v=1328efac:3680:22)
+    at Object.invokeGuardedCallbackDev (chunk-LPF6KSF2.js?v=1328efac:3705:24)
+    at invokeGuardedCallback (chunk-LPF6KSF2.js?v=1328efac:3739:39)
+    at beginWork$1 (chunk-LPF6KSF2.js?v=1328efac:19818:15)
+    at performUnitOfWork (chunk-LPF6KSF2.js?v=1328efac:19251:20)
+    at workLoopSync (chunk-LPF6KSF2.js?v=1328efac:19190:13)
+Designer.tsx:497 Uncaught ReferenceError: validationData is not defined
+    at DesignerInner (Designer.tsx:497:19)
+    at renderWithHooks (chunk-LPF6KSF2.js?v=1328efac:11596:26)
+    at mountIndeterminateComponent (chunk-LPF6KSF2.js?v=1328efac:14974:21)
+    at beginWork (chunk-LPF6KSF2.js?v=1328efac:15962:22)
+    at HTMLUnknownElement.callCallback2 (chunk-LPF6KSF2.js?v=1328efac:3680:22)
+    at Object.invokeGuardedCallbackDev (chunk-LPF6KSF2.js?v=1328efac:3705:24)
+    at invokeGuardedCallback (chunk-LPF6KSF2.js?v=1328efac:3739:39)
+    at beginWork$1 (chunk-LPF6KSF2.js?v=1328efac:19818:15)
+    at performUnitOfWork (chunk-LPF6KSF2.js?v=1328efac:19251:20)
+    at workLoopSync (chunk-LPF6KSF2.js?v=1328efac:19190:13)
+chunk-LPF6KSF2.js?v=1328efac:14080 The above error occurred in the <DesignerInner> component:
+
+    at DesignerInner (https://6b12531c-65a4-46d5-a9eb-514351e7eb7b-00-2fwmxtpvxi3ty.picard.replit.dev/src/pages/Designer.tsx:73:21)
+    at BatchProvider (https://6b12531c-65a4-46d5-a9eb-514351e7eb7b-00-2fwmxtpvxi3ty.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@xyflow_react.js?v=1328efac:6879:36)
+    at ReactFlowProvider (https://6b12531c-65a4-46d5-a9eb-514351e7eb7b-00-2fwmxtpvxi3ty.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@xyflow_react.js?v=1328efac:8936:44)
+    at Designer
+    at Route (https://6b12531c-65a4-46d5-a9eb-514351e7eb7b-00-2fwmxtpvxi3ty.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=1328efac:190:16)
+    at Switch (https://6b12531c-65a4-46d5-a9eb-514351e7eb7b-00-2fwmxtpvxi3ty.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=1328efac:246:17)
+    at Router
+    at Provider (https://6b12531c-65a4-46d5-a9eb-514351e7eb7b-00-2fwmxtpvxi3ty.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-5VUNS5QR.js?v=1328efac:42:15)
+    at TooltipProvider (https://6b12531c-65a4-46d5-a9eb-514351e7eb7b-00-2fwmxtpvxi3ty.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=1328efac:61:5)
+    at QueryClientProvider (https://6b12531c-65a4-46d5-a9eb-514351e7eb7b-00-2fwmxtpvxi3ty.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=1328efac:2747:3)
+    at App
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+logCapturedError @ chunk-LPF6KSF2.js?v=1328efac:14080
+chunk-LPF6KSF2.js?v=1328efac:19466 Uncaught ReferenceError: validationData is not defined
+    at DesignerInner (Designer.tsx:497:19)
+    at renderWithHooks (chunk-LPF6KSF2.js?v=1328efac:11596:26)
+    at mountIndeterminateComponent (chunk-LPF6KSF2.js?v=1328efac:14974:21)
+    at beginWork (chunk-LPF6KSF2.js?v=1328efac:15962:22)
+    at beginWork$1 (chunk-LPF6KSF2.js?v=1328efac:19806:22)
+    at performUnitOfWork (chunk-LPF6KSF2.js?v=1328efac:19251:20)
+    at workLoopSync (chunk-LPF6KSF2.js?v=1328efac:19190:13)
+    at renderRootSync (chunk-LPF6KSF2.js?v=1328efac:19169:15)
+    at recoverFromConcurrentError (chunk-LPF6KSF2.js?v=1328efac:18786:28)
+    at performConcurrentWorkOnRoot (chunk-LPF6KSF2.js?v=1328efac:18734:30)
