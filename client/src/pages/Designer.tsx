@@ -58,6 +58,9 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 
+import { ValidationModal } from '@/components/ValidationModal';
+import { validateNetwork, ValidationError } from '@/lib/validator';
+
 const nodeTypes = {
   reservoir: ReservoirNode,
   node: SimpleNode,
@@ -326,10 +329,17 @@ function DesignerInner() {
     e.target.value = '';
   };
 
-  const handleGenerateInp = async () => {
+  const handleGenerateInp = async (force: boolean | any = false) => {
+    if (force !== true) {
+      const results = validateNetwork(nodes as WhamoNode[], edges as WhamoEdge[]);
+      if (results.errors.length > 0 || results.warnings.length > 0) {
+        setValidationData(results);
+        return;
+      }
+    }
     try {
       // Pass false to prevent internal download, we handle it here
-      const inpContent = generateInpFile(nodes, edges, false);
+      const inpContent = generateInpFile(nodes as WhamoNode[], edges as WhamoEdge[], false);
       
       // Generate system diagram
       const diagramHtml = generateSystemDiagram(nodes, edges);
@@ -363,6 +373,7 @@ function DesignerInner() {
 
   const handleNewProject = () => {
     clearNetwork();
+  const [validationData, setValidationData] = useState<{ errors: ValidationError[], warnings: ValidationError[] } | null>(null);
     setProjectState("active");
   };
 
@@ -482,6 +493,16 @@ function DesignerInner() {
 
   return (
     <div className="flex flex-col h-screen w-full overflow-hidden bg-background text-foreground relative">
+      <ValidationModal 
+        isOpen={!!validationData}
+        onClose={() => setValidationData(null)}
+        onGenerate={() => {
+          handleGenerateInp(true);
+          setValidationData(null);
+        }}
+        errors={validationData?.errors || []}
+        warnings={validationData?.warnings || []}
+      />
       {/* Hidden File Input */}
       <input 
         type="file" 

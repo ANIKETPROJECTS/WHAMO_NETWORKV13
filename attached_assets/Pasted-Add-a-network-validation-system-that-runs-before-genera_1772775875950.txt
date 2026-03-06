@@ -1,0 +1,242 @@
+Add a **network validation system** that runs **before generating the `.inp` file** in the Hydraulic Transient Analysis Software. When the user clicks **Generate .INP**, the system must first validate the entire network diagram and all parameters. If validation fails, the `.inp` file must **not be generated** and instead a **popup modal must appear listing errors and warnings**. The user must fix the issues before the `.inp` generation can proceed.
+
+The validation should analyze the **network topology, element connections, and parameter completeness**.
+
+The popup must clearly separate:
+
+* **Errors (❌ must fix before generating .inp)**
+* **Warnings (⚠️ recommended fixes but optional)**
+
+Example popup layout:
+
+Network Validation Report
+
+Errors
+
+1. Pipe C4 missing Length
+2. Node N8 is not connected
+3. Surge Tank ST1 Top Elevation must be greater than Bottom Elevation
+
+Warnings
+
+1. Pipe C2 friction value unusually high
+2. Very short pipe length detected
+
+Buttons:
+
+* **Close**
+* **Generate Anyway** (only enabled if there are no errors)
+
+The validation should run **every time Generate .INP is clicked**.
+
+---
+
+### Elements in the network
+
+The software currently contains these elements:
+
+Reservoir
+Surge Tank
+Nodes / Junctions
+Conduits (pipes)
+Dummy Pipes
+Flow Boundaries (FB)
+
+Do **not include valves or turbines** in any rules.
+
+---
+
+### General Network Rules
+
+1. The network must contain **at least one Reservoir** acting as a source.
+
+2. Every element must be **connected to the network**. Floating or unconnected elements are not allowed.
+
+3. The network must be **fully connected**. All elements must be reachable from the reservoir through pipes/conduits.
+
+4. Pipes can connect between:
+
+   * Node ↔ Node
+   * Reservoir ↔ Node
+   * Node ↔ Surge Tank
+   * Node ↔ Flow Boundary
+
+5. Invalid direct connections:
+
+   * Pipe → Pipe
+   * Reservoir → Reservoir
+   * Flow Boundary → Pipe
+
+6. Every branch must eventually **terminate at a valid boundary condition** such as:
+
+   * Flow Boundary
+   * Reservoir
+
+7. Detect **dead ends** where a pipe leads to a node that has no valid continuation or boundary.
+
+---
+
+### ID Rules
+
+1. **All elements except pipes must have unique IDs.**
+
+2. Pipes **may have duplicate IDs** because multiple segments can belong to the same conduit.
+
+3. If duplicate IDs are detected for elements other than pipes, raise an error.
+
+Example error:
+
+Duplicate ID detected: Node N5 appears multiple times.
+
+---
+
+### Pipe / Conduit / Dummy Pipe Validation
+
+Pipes are called either **Conduit** or **Dummy Pipe** depending on their type.
+
+Required parameters for a Conduit:
+
+* Length
+* Diameter
+* Celerity
+* Friction
+
+If any required parameter is missing:
+
+Error example:
+
+Conduit C4 missing required parameter: Length
+
+Warnings may be issued if:
+
+* Length is extremely small
+* Friction is unusually high
+
+Dummy Pipes should still have valid **connections**, even if some parameters are optional.
+
+---
+
+### Node / Junction Rules
+
+Nodes must:
+
+* Connect to **at least two pipes** unless they are connected to a boundary element.
+* Not exist as isolated points.
+
+Error example:
+
+Node N12 is not connected to the network.
+
+---
+
+### Reservoir Validation
+
+Reservoir must:
+
+* Have **exactly one pipe connection**
+* Have a defined **water surface elevation**
+
+Errors:
+
+Reservoir RES1 must connect to exactly one pipe.
+Reservoir RES1 missing elevation value.
+
+---
+
+### Surge Tank Validation
+
+Surge Tank must:
+
+* Connect to **exactly one node**
+* Have required parameters defined.
+
+Required parameters:
+
+* Top Elevation
+* Bottom Elevation
+* Diameter OR Shape definition
+* Celerity
+* Friction
+
+Validation rules:
+
+Top Elevation must be greater than Bottom Elevation.
+
+Example error:
+
+Surge Tank ST1 Top Elevation must be greater than Bottom Elevation.
+
+---
+
+### Flow Boundary Validation
+
+Flow Boundary must:
+
+* Be located **at the end of a branch**
+* Connect to exactly **one node**
+* Have a valid **Q-Schedule assigned**
+
+Error example:
+
+Flow Boundary FB2 missing Q-Schedule.
+
+---
+
+### Network Consistency Validation
+
+The validator must also detect:
+
+* Disconnected network sections
+* Dead-end nodes
+* Invalid element connections
+* Missing required parameters
+* Invalid elevation relationships
+* Missing schedules
+* Missing boundary conditions
+
+---
+
+### Validation Workflow
+
+When the user presses **Generate .INP**:
+
+1. Run `validateNetwork()`
+2. Collect all **errors and warnings**
+3. If errors exist:
+
+   * Stop `.inp` generation
+   * Show validation popup
+4. If only warnings exist:
+
+   * Show popup
+   * Allow user to continue generation
+5. If no issues exist:
+
+   * Generate `.inp` file normally
+
+---
+
+### Validation Structure
+
+Implement a validation system with functions such as:
+
+validateNetworkTopology()
+validateConnections()
+validateElementParameters()
+validateNetworkConsistency()
+
+Each function should return lists of **errors** and **warnings** which are displayed in the popup.
+
+---
+
+### UI Behavior
+
+When validation fails, display a **modal popup overlay** centered on the screen containing:
+
+* Title: Network Validation Report
+* Scrollable list of errors and warnings
+* Clear icons for errors and warnings
+* Close button
+* Continue button (only if there are no errors)
+
+The popup must appear **before any .inp generation occurs**.
