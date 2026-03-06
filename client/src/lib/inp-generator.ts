@@ -186,12 +186,17 @@ export function generateInpFile(nodes: WhamoNode[], edges: WhamoEdge[], autoDown
 
   // Properties Section
   const exportedConduitLabels = new Set<string>();
+  const exportedReservoirLabels = new Set<string>();
 
   nodes.filter(n => n.type === 'reservoir').forEach(n => {
     const unit = n.data.unit || globalUnit;
+    const label = n.data.label;
+    if (exportedReservoirLabels.has(label)) return;
+    exportedReservoirLabels.add(label);
+
     addComment(n.data.comment);
     addL('RESERVOIR');
-    addL(` ID ${n.data.label}`);
+    addL(` ID ${label}`);
     addL(` ELEV ${toFPS(Number(n.data.reservoirElevation || 0), unit, 'elevation')}`);
     addL(' FINISH');
     addL('');
@@ -264,13 +269,18 @@ export function generateInpFile(nodes: WhamoNode[], edges: WhamoEdge[], autoDown
     addL('');
   });
 
+  const exportedSurgeTankLabels = new Set<string>();
   nodes.filter(n => n.type === 'surgeTank' || n.data?.type_st).forEach(n => {
     const d = n.data;
     if (!d) return;
+    const label = d.label;
+    if (exportedSurgeTankLabels.has(label)) return;
+    exportedSurgeTankLabels.add(label);
+
     const unit = d.unit || globalUnit;
     addComment(d.comment);
     addL('SURGETANK');
-    addL(` ID ${d.label} ${d.type_st || 'SIMPLE'}`);
+    addL(` ID ${label} ${d.type_st || 'SIMPLE'}`);
     addL(` ELTOP ${toFPS(Number(d.tankTop), unit, 'elevation')}`);
     addL(` ELBOTTOM ${toFPS(Number(d.tankBottom), unit, 'elevation')}`);
 
