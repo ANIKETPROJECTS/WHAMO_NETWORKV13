@@ -136,7 +136,13 @@ export function validateNetwork(nodes: WhamoNode[], edges: WhamoEdge[]): { error
         (other.type === 'reservoir' || other.type === 'flowBoundary') && 
         adjacency.get(other.id)?.includes(n.id)
       );
-      if (connections.length < 2 && !isBoundary) {
+
+      // Dead end detection: 
+      // A node/junction is a dead end if it has only 1 connection and it's not connected to a boundary.
+      // Boundaries (Reservoir, Flow Boundary) are allowed to have 1 connection.
+      if (connections.length === 1 && !isBoundary) {
+        addError(n.id, `Dead end detected: ${n.type} ${d.label} has no continuation or boundary condition.`, d.label, n.type);
+      } else if (connections.length < 2 && !isBoundary) {
         addWarning(n.id, `Node ${d.label} has fewer than 2 connections and is not a boundary.`, d.label, n.type);
       }
     }
