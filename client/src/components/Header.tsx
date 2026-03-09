@@ -742,9 +742,8 @@ export function Header({
                           const el =
                             nodes.find((n) => n.id === req.elementId) ||
                             edges.find((e) => e.id === req.elementId);
-                          const displayLabel = String(
+                          const displayLabel = el?.data?.label || String(
                             el?.data?.nodeNumber ||
-                              el?.data?.label ||
                               req.elementId,
                           );
                           return (

@@ -289,7 +289,7 @@ export function Toolbar({ onExport, onSave, onLoad }: { onExport: (fileName?: st
                     })
                     .map(req => {
                     const el = nodes.find(n => n.id === req.elementId) || edges.find(e => e.id === req.elementId);
-                    const displayLabel = String(el?.data?.nodeNumber || el?.data?.label || req.elementId);
+                    const displayLabel = el?.data?.label || String(el?.data?.nodeNumber || req.elementId);
                     return (
                       <div key={`${req.id}-${req.requestType}`} className="flex items-center justify-between text-sm py-1 border-b">
                         <span>{displayLabel} ({req.requestType}): {req.variables.join(', ')}</span>
