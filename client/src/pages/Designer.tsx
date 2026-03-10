@@ -589,6 +589,7 @@ function DesignerInner() {
                   onNodeClick={onNodeClick}
                   onEdgeClick={onEdgeClick}
                   onSelectionChange={onSelectionChange as any}
+                  onPaneClick={() => setShowNodeSelection(false)}
                   fitView
                   minZoom={0.05}
                   maxZoom={4}
