@@ -195,10 +195,35 @@ function DesignerInner() {
       if (connectionState?.fromNode && !connectionState?.toNode) {
         const { clientX, clientY } =
           'changedTouches' in event ? event.changedTouches[0] : (event as MouseEvent);
-        const position = screenToFlowPosition({ x: clientX, y: clientY });
+        const dropPos = screenToFlowPosition({ x: clientX, y: clientY });
 
-        // Add a new plain node at the drop point
-        addNode('node', position);
+        // Determine which handle on the new node to connect to based on drag direction.
+        // `connectionState.from` is the flow-coordinate position of the source handle.
+        const from: { x: number; y: number } = connectionState.from ?? { x: 0, y: 0 };
+        const dx = dropPos.x - from.x;
+        const dy = dropPos.y - from.y;
+        const angleDeg = Math.atan2(dy, dx) * (180 / Math.PI); // -180..180
+
+        // Map angle to the face of the new node the conduit should enter from.
+        // The new node's OPPOSITE face should receive the connection.
+        let targetHandle: string;
+        if (angleDeg >= -45 && angleDeg < 45) {
+          // Dragging right → enter new node from the LEFT
+          targetHandle = 't-left';
+        } else if (angleDeg >= 45 && angleDeg < 135) {
+          // Dragging down → enter new node from the TOP
+          targetHandle = 't-top';
+        } else if (angleDeg >= 135 || angleDeg < -135) {
+          // Dragging left → enter new node from the RIGHT
+          targetHandle = 't-right';
+        } else {
+          // Dragging up → enter new node from the BOTTOM
+          targetHandle = 't-bottom';
+        }
+
+        // Center the new node on the drop point (nodes are ~60×60 px)
+        const centeredPos = { x: dropPos.x - 30, y: dropPos.y - 30 };
+        addNode('node', centeredPos);
 
         // The new node is always appended last — grab it from the store
         const newNode = useNetworkStore.getState().nodes.at(-1);
@@ -208,7 +233,7 @@ function DesignerInner() {
           source: connectionState.fromNode.id,
           sourceHandle: connectionState.fromHandle?.id ?? null,
           target: newNode.id,
-          targetHandle: null,
+          targetHandle,
         });
 
         // Auto-select the new node so properties panel opens

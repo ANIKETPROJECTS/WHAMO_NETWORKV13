@@ -393,9 +393,9 @@ export const useNetworkStore = create<NetworkState>((set, get) => ({
     const id = getId();
     let initialData: NodeData = { label: '', type };
 
-    // Common node number logic for all physical nodes
-    const nodeTypesWithNumbers: NodeType[] = ['reservoir', 'node', 'junction', 'surgeTank', 'flowBoundary'];
-    let nodeNumber = parseInt(id);
+    // Compute nodeNumber independently from the internal id so it stays sequential
+    // regardless of how many edges or other elements have been created.
+    const nodeNumber = get().nodes.filter(n => n.data?.nodeNumber !== undefined).length + 1;
 
     switch (type) {
       case 'reservoir':
