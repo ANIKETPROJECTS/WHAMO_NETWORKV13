@@ -337,9 +337,36 @@ export const useNetworkStore = create<NetworkState>((set, get) => ({
     const hasSignificantChange = changes.some(c => c.type === 'remove' || c.type === 'add');
     if (hasSignificantChange) get().saveToHistory();
 
-    set({
-      edges: applyEdgeChanges(changes, get().edges as any) as WhamoEdge[],
-    });
+    const updatedEdges = applyEdgeChanges(changes, get().edges as any) as WhamoEdge[];
+    set({ edges: updatedEdges });
+
+    // Auto-downgrade junctions back to plain nodes when they drop to ≤2 connections
+    if (changes.some(c => c.type === 'remove')) {
+      const currentNodes = get().nodes;
+      const nodeIdsToDowngrade: string[] = [];
+
+      for (const n of currentNodes) {
+        if (n.type !== 'junction') continue;
+        const degree = updatedEdges.filter(
+          e => e.source === n.id || e.target === n.id
+        ).length;
+        if (degree <= 2) nodeIdsToDowngrade.push(n.id);
+      }
+
+      if (nodeIdsToDowngrade.length > 0) {
+        set({
+          nodes: currentNodes.map(n =>
+            nodeIdsToDowngrade.includes(n.id)
+              ? {
+                  ...n,
+                  type: 'node' as NodeType,
+                  data: { ...n.data, type: 'node' as NodeType },
+                }
+              : n
+          ),
+        });
+      }
+    }
   },
 
   onConnect: (connection: Connection) => {
@@ -373,6 +400,35 @@ export const useNetworkStore = create<NetworkState>((set, get) => ({
         get().edges
       ),
     });
+
+    // Auto-upgrade plain nodes to junctions when they gain more than 2 connections
+    {
+      const currentEdges = get().edges;
+      const currentNodes = get().nodes;
+      const nodeIdsToUpgrade: string[] = [];
+
+      for (const n of currentNodes) {
+        if (n.type !== 'node') continue;
+        const degree = currentEdges.filter(
+          e => e.source === n.id || e.target === n.id
+        ).length;
+        if (degree > 2) nodeIdsToUpgrade.push(n.id);
+      }
+
+      if (nodeIdsToUpgrade.length > 0) {
+        set({
+          nodes: currentNodes.map(n =>
+            nodeIdsToUpgrade.includes(n.id)
+              ? {
+                  ...n,
+                  type: 'junction' as NodeType,
+                  data: { ...n.data, type: 'junction' as NodeType },
+                }
+              : n
+          ),
+        });
+      }
+    }
 
     // Auto-select output requests for the new edge
     const availableVars = ["Q", "HEAD", "ELEV", "VEL", "PRESS", "PIEZHEAD"];
